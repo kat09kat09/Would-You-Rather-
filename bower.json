@@ -1,0 +1,25 @@
+{
+  "name": "2015-11-solo",
+  "homepage": "https://github.com/kat09kat09/2015-11-solo",
+  "authors": [
+    "kat09kat09 <kat09kat09@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6"
+  }
+}
