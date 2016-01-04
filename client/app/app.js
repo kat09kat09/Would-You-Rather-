@@ -9,12 +9,12 @@ angular.module('wyr', ['ui.router'])
       url:'/home',
       views: {
         'columnOne@showQ':  {
-          templateUrl: 'showQ.html'
-          controller: showQCtrl
+          templateUrl: 'showQ.html',
+          controller: 'showQCtrl'
         },
         'columnTwo@submitQ': {
           templateUrl: 'submitQ.html',
-          controller: submitQCtrl
+          controller: 'submitQCtrl'
         }
       }
     })
@@ -25,5 +25,5 @@ angular.module('wyr', ['ui.router'])
 })
 
 .controller('submitQCtrl', function ($scope){
-  
+
 })  
