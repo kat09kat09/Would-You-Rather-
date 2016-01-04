@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Would you rather?
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > "Would you rather?" provides a way for you to play this classic game online!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > "Would you rather?" is a classic game that people of all ages will enjoy. Play the game and let the fun begin! 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Providing you a curated "Would you Rather?" game experience with thought provoking questions, all just a click away. Awkward dinner with people you barely know? Pull up "Would you Rather?" to break the ice!
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Entertainment in a group setting at your fingertips! 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "I love playing "Would you rather?" with friends, family, and acquaintences!"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Simply follow the link and start playing! 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Would you rather? is a fun game to play with your family or friends!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Follow this link to start!
