@@ -3,18 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <title>Would You Rather?</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Would You Rather?</h1>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="#">Would You Rather?</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a ui-sref="home">Home</a></li>
+      </ul>
+    </nav>
     
     <!-- the ui-view directive is where our templates will be loaded into when navigated to -->
     <div ui-view></div>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="app/views/showQ.js"></script>
-    <script src="app/views/submitQ.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="app/views/home.html"></script>
+    <script src="app/views/showQ.html"></script>
+    <script src="app/views/submitQ.html"></script>
     <script src="app/app.js"></script>
   </body>
 </html>
