@@ -1,9 +1,8 @@
 <div id='container' ng-controller='showQCtrl'> 
   <p> show Q view</p>
   {{testA}}
-  <ul ng-repeat="question in data.questions">
-    <a ng-click='nextQ()'> {{question.optionA}}</a>
-    <span> OR </span>
-    <a ng-click='nextQ()'> {{question.optionB}}</a>
-  </ul>
+  <a ng-click='nextQ()'> {{question[0]}}</a>
+  <span> OR </span>
+  <a ng-click='nextQ()'> {{question[1]}}</a>
+
 </div>
