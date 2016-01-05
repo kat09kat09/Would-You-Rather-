@@ -1,8 +1,14 @@
 <div id='container' ng-controller='showQCtrl'> 
-  <p> show Q view</p>
-  {{testA}}
-  <a ng-click='nextQ()'> {{question[0]}}</a>
-  <span> OR </span>
-  <a ng-click='nextQ()'> {{question[1]}}</a>
-
+  <div class='jumbotron vertical-center'>
+    
+        <h1>Would You Rather...</h1>
+  
+    <button type='button' class='btn btn-default btn-lg'>
+      <a ng-click='nextQ()'> {{question[0]}}</a>
+    </button>
+    <span> OR </span>
+    <button type='button' class='btn btn-default btn-lg'>
+      <a ng-click='nextQ()'> {{question[1]}}</a>
+    </button>
+  </div>
 </div>
