@@ -5,3 +5,9 @@
   display: flex;
   align-items: center;
 }
+
+.or {
+  display: block;
+  text-align: center;
+  
+}

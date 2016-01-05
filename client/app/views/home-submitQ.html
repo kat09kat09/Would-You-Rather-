@@ -1,7 +1,11 @@
-<div id='container' ng-controller='submitQCtrl'>
-  <form name="SubmitQForm">
-    <input type='text' ng-model='oA' name='optionA'>
-    <input type='text' ng-model='oB' name='optionB'>
-    <button ng-click='addQ(oA, oB)'>Submit</button>
-  </form>
+<div class='container-fluid' ng-controller='submitQCtrl'>
+  <div class='well well-lg'>
+    <div class= 'input-group-lg'>
+      <form name="SubmitQForm" class="form-group">
+        <input type='text' class='form-control' placeholder='Option A' ng-model='oA' name='optionA'></input>
+        <input type='text' class='form-control' placeholder='Option B' ng-model='oB' name='optionB'></input>
+        <button type='button' class='btn btn-default btn-lg' ng-click='addQ(oA, oB)'>Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
