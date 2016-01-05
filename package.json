@@ -1,0 +1,25 @@
+{
+  "name": "2015-11-solo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kat09kat09/2015-11-solo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kat09kat09/2015-11-solo/issues"
+  },
+  "homepage": "https://github.com/kat09kat09/2015-11-solo#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.4",
+    "nodemon": "^1.8.1"
+  }
+}

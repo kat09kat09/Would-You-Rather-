@@ -1,4 +1,4 @@
-angular.module('wyr', ['ui.router'])
+angular.module('wyr', ['wyr.services','ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/home'); 
@@ -21,12 +21,27 @@ angular.module('wyr', ['ui.router'])
     })
 }])
 
-.controller('showQCtrl', ['$scope', 'NextQ', function ($scope, NextQ){
-  $scope.testA= 'this works'; 
-  $scope.question= ['Fall down every flight of stairs you encounter', 'Slam your hands in every door you encounter']; 
-  $scope.nextQ= function () {
-    $scope.question= NextQ.nextQ();
-  }  
+.controller('showQCtrl', ['$scope','NextQ', 'HttpRequest','$http',  function ($scope, NextQ, HttpRequest, $http){
+
+  //on page load, get all the questions
+  //default: populate first question
+  $http({
+      method: 'GET',
+      url: '/api/questions'
+  }).then(function (res) {
+      var questions= res.data; 
+      $scope.questions= res.data;
+      $scope.question= [$scope.questions[0].optionA,$scope.questions[0].optionB]; 
+      $scope.nextQ= function () {
+       $scope.question= NextQ.nextQ(questions);
+       console.log('next q',questions); 
+      } 
+      return res.data; 
+  }); 
+
+
+  // $scope.question= ['Fall down every flight of stairs you encounter', 'Slam your hands in every door you encounter']; 
+   
 
 }])
 
@@ -38,39 +53,69 @@ angular.module('wyr', ['ui.router'])
   }
 }])  
 
-.factory('NextQ', function () {
-  var questions= [
-    ['Fall down every staircase you come across', 'Shut your hand in every door you open'],
-     ['Live in a nudist colony', 'Live with the Amish'], 
-     ['Have hiccups for the rest of your life', 'Always feel like you have to sneez but are not able to'],
-     ['Eat a potato and feel its pain','Be a potato and feel no pain'],
-     ['Know when you are going to die','Know how you are going to die'],
-     ['Be immortal','Be able to reincarnate every 100 years'],
-     ['Be itchy forever','Have an eyelash get into your eye every five minutes'],
-     ['Have the ability to fly, but every time you flew, you were naked','Have the ability to be invisible, but anytime you went invisible people nearby would talk shit about you'],
-     ['Wipe with sandpaper','Wipe with saran wrap'],
-     ['Work your dream job for no wages, relying only on welfare payments to survive','Sit naked in a completely empty white room from 8 to 5, Monday to Saturday for $5 million a year'],
-     ['Watch porn with your parents','Watch porn OF your parents'],
-     ['Fight a horse-sized duck', 'Fight a 1000 duck-sized horses'],
-     ['Be rich, but live in a virtual world', 'Be poor, but live in the real world']
-  ]; 
+.factory('HttpRequest', function ($http) {
+  var data= [];
+  var getQuestions= function () {
+    return $http({
+      method: 'GET',
+      url: '/api/questions'
+    }).then(function (res) {
+      console.log('res.data-- should contain all the qs', res.data)
+
+      data= res.data; 
+      return res.data; 
+    }); 
+  };
+  var addQuestion= function (optionA, optionB) {
+    return $http({
+      method: 'POST',
+      url: '/api/questions',
+      data: {
+        optionA: optionA,
+        optionB: optionB
+      }
+    }); 
+  }
+  return {
+    data: data,
+    getQuestions: getQuestions,
+    addQuestion: addQuestion
+  };
+})
+
+.factory('NextQ', ['HttpRequest', function (HttpRequest) {
+
+  var questions=[['Fall down every staircase you come across', 'Shut your hand in every door you open']]; 
   var idx=0; 
-  var nextQ= function () {
-    idx++; 
-    if(idx>= questions.length) {
-      idx=0; 
-    }
-    return questions[idx]; 
+  //randomly pick the next question 
+  var nextQ= function (questions) {
+    var randomNum= function () { return Math.random()};
+    var newIdx= Math.floor(questions.length * randomNum());
+
+    console.log('new idx', newIdx); 
+
+    return [questions[newIdx].optionA, questions[newIdx].optionB]; 
   };
 
   var addQ= function (optionA, optionB) {
-    questions.push([optionA, optionB]); 
-    console.log('questions', questions); 
+    // questions.push([optionA, optionB]); 
+    // console.log('questions', questions);
+
+    HttpRequest.addQuestion(optionA, optionB); 
   };
+
+  var getQ= function () {
+
+    return HttpRequest.getQuestions();
+
+  }
 
   return {
     nextQ: nextQ,
-    addQ: addQ
+    addQ: addQ,
+    getQ: getQ
   }
-})
+}])
+
+
 
