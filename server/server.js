@@ -10,6 +10,6 @@ require('./config/middleware.js')(app, express);
 
 // export our app for testing and flexibility, required by index.js
 
-app.listen(8000);
+app.listen(process.env.PORT||8000);
 
 module.exports = app;

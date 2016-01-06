@@ -89,12 +89,12 @@ angular.module('wyr', ['wyr.services','ui.router'])
   var idx=0; 
   //randomly pick the next question 
   var nextQ= function (questions) {
-    var randomNum= function () { return Math.random()};
-    var newIdx= Math.floor(questions.length * randomNum());
+    // var randomNum= function () { return Math.random()};
+    // var newIdx= Math.floor(questions.length * randomNum());
 
-    console.log('new idx', newIdx); 
-
-    return [questions[newIdx].optionA, questions[newIdx].optionB]; 
+    // console.log('new idx', newIdx); 
+    idx++; 
+    return [questions[idx].optionA, questions[idx].optionB]; 
   };
 
   var addQ= function (optionA, optionB) {
