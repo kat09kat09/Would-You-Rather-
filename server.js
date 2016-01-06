@@ -3,7 +3,11 @@
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/questions'); // connect to mongo database named questions
+// connect to mongo database named questions - locally
+// mongoose.connect('mongodb://127.0.0.1:27017/questions');
+
+//connect to mongoLab
+mongoose.connect(process.env.MONGOLAB_URI); 
 
 // configure our server with all the middleware and and routing
 require('./server/config/middleware.js')(app, express);
