@@ -93,7 +93,7 @@ angular.module('wyr', ['wyr.services','ui.router'])
     // var newIdx= Math.floor(questions.length * randomNum());
 
     // console.log('new idx', newIdx); 
-    idx++; 
+    idx++;
     return [questions[idx].optionA, questions[idx].optionB]; 
   };
 
