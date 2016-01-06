@@ -40,9 +40,6 @@ angular.module('wyr', ['wyr.services','ui.router'])
   }); 
 
 
-  // $scope.question= ['Fall down every flight of stairs you encounter', 'Slam your hands in every door you encounter']; 
-   
-
 }])
 
 .controller('submitQCtrl', ['$scope', 'NextQ', function ($scope, NextQ){
@@ -94,6 +91,9 @@ angular.module('wyr', ['wyr.services','ui.router'])
 
     // console.log('new idx', newIdx); 
     idx++;
+    if(idx>= questions.length){
+      idx=0; 
+    }
     return [questions[idx].optionA, questions[idx].optionB]; 
   };
 
